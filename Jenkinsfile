@@ -4,7 +4,18 @@ pipeline{
         stage('checkout the code')
         {
             steps{
-                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Sitaram2003/Automate-Docker-Build-Image']])
+                checkout scm
+            }
+        }
+        stage('Test'){
+            steps{
+                sh 'npm install'
+                sh 'npm test'
+            }
+        }
+        stage('Build'){
+            steps{
+                sh 'npm run build'
             }
         }
         stage("build docker image"){

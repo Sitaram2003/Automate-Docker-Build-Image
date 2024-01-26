@@ -8,7 +8,7 @@ pipeline{
         }
         stage("build docker image"){
             steps{
-                sh 'docker build -t Automate-Docker-Build-image:v1 .'
+                sh 'docker build -t Automate-Docker-Build-image:v1 */main/'
             }
         }
         stage("Push docker image"){

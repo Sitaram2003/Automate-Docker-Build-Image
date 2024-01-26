@@ -21,7 +21,7 @@ pipeline{
         stage("build docker image"){
             steps{
                 script{
-                    sh 'docker build -t Automate-Docker-Build-image:v1 .'
+                    sh 'docker build -t Automate-Docker-Build-image:v1 . '
                 }
             }
         }

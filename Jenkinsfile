@@ -1,15 +1,14 @@
 pipeline{
     agent any
     stages{
-        stage('checkout the code')
-        {
+        stage('checkout the code'){
             steps{
-                checkout scm
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Sitaram2003/Automate-Docker-Build-Image']])
             }
         }
         stage("build docker image"){
             steps{
-                sh 'docker build -t Automate-Docker-Build-image:v1 . '
+                sh 'docker build -t Automate-Docker-Build-image:v1 .'
             }
         }
         stage("Push docker image"){

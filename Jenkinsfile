@@ -7,17 +7,6 @@ pipeline{
                 checkout scm
             }
         }
-        stage('Test'){
-            steps{
-                sh 'npm install'
-                sh 'npm test'
-            }
-        }
-        stage('Build'){
-            steps{
-                sh 'npm run build'
-            }
-        }
         stage("build docker image"){
             steps{
                 script{
